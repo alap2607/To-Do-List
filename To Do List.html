@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .text{
+            background-color: #4DAF25;
+            color: white;
+            font-size: 10mm;
+            font-family: system-ui;
+            font-weight: 300;
+            padding: 10px 20px 10px 20px;
+        }
+       .button{
+            padding: 30px 30px 30px 30px; 
+       }
+       .btn{
+           font-family: system-ui;
+           font-weight: 300;
+       }
+    </style>
+</head>
+<body>
+
+    <div class="text">
+        To Do List
+    </div>
+
+    <div class="button" >
+    <button type="button" class="btn btn-success btn" id="myBtn" onclick="openModal()">
+        <i class="bi bi-plus-circle"></i>
+        <strong>Add Items</strong>
+        <button class="btn-pencil" onclick="editModal()" >
+          <i class="bi bi-pencil-fill"></i>
+      </button>
+
+      <button>
+          <i class="bi bi-x-square-fill" onclick="deleteModal()"></i>
+      </button>
+    </button>
+    </div>
+
+    <div class="modal" tabindex="-1" id="addItemModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Notes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal('addItemModal')" id="modalClose" >
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <input placeholder="Enter your Notes" type="text" class="createText"  id="addText"  value=" ">
+            
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal('addItemModal')" id="modalClose">
+              Close
+            </button>
+
+            <button type="button" class="btn btn-primary" onclick="createItem('addItemModal')">
+              Create
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+          <script>
+            function openModal(){
+              var modal = document.getElementById('addItemModal');
+              modal.style.display = 'block';
+            }
+            function createItem(id){
+              var text = document.getElementById('addText').value;
+              document.getElementById("addItem").innerHTML += text;
+
+              closeModal(id); 
+            }
+            
+            function closeModal(id) {
+              var modal = document.getElementById(id);
+              modal.style.display = 'none';
+            }
+            function editModal(){
+              var modal = document.getElementById('addItemModal');
+              modal.style.display = 'block';
+
+            }
+            function deleteModal(){
+              var newDiv = document.createElement("div");
+              
+            }
+        </script>
+</body>
+</html>
